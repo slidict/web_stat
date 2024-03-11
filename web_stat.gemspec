@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = "web_stat"
   spec.version       = WebStat::VERSION
   spec.authors       = ["yusuke abe"]
-  spec.email         = ["yube@newsdict.jp"]
+  spec.email         = ["yube@slidict.io"]
   spec.summary       = "Get the status of  the web pages."
   spec.description   = <<-EOS.strip.gsub(/\s+/, ' ')
     Fetch the web pages and stat.
@@ -19,23 +19,23 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
-  
-  spec.add_runtime_dependency "bundler", ">= 2.0.2"
-  spec.add_runtime_dependency "nokogiri", ">= 1.10.4"
-  spec.add_runtime_dependency "mechanize", ">= 2.7.7"
-  spec.add_runtime_dependency "ruby-readability", ">= 0.7"
-  spec.add_runtime_dependency "natto", ">= 1.1.2"
-  spec.add_runtime_dependency "sanitize", ">= 5.0.0"
-  spec.add_runtime_dependency "cld", ">= 0.8.0"
-  spec.add_runtime_dependency "selenium-webdriver", "= 3.142.7"
-  spec.add_runtime_dependency "pdf-reader", "2.4.0"
-  spec.add_runtime_dependency "webrick", ">= 1.7.0"
-  spec.add_runtime_dependency "rexml", ">= 3.2.4"
-  spec.add_runtime_dependency "google-api-client", ">= 0.53.0" 
 
-  spec.add_development_dependency "rake", ">= 10.0"
-  spec.add_development_dependency "rspec", ">= 3.0"
-  spec.add_development_dependency "pry", ">= 0.13.1"
-  spec.add_development_dependency "webmock", ">= 3.8.3"
-  spec.add_development_dependency "pry-byebug", "3.9.0"
+  spec.add_runtime_dependency "bundler", ">= 2.0.2"
+  spec.add_runtime_dependency "nokogiri", ">= 1.16.2"
+  spec.add_runtime_dependency "mechanize", ">= 2.10.0"
+  spec.add_runtime_dependency "ruby-readability", ">= 0.7"
+  spec.add_runtime_dependency "natto", ">= 1.2.0"
+  spec.add_runtime_dependency "sanitize", ">= 6.1.0"
+  spec.add_runtime_dependency "cld", ">= 0.13.0"
+  spec.add_runtime_dependency "selenium-webdriver", ">= 4.18.1"
+  spec.add_runtime_dependency "pdf-reader", "2.4.0"
+  spec.add_runtime_dependency "webrick", ">= 1.8.1"
+  spec.add_runtime_dependency "rexml", ">= 3.2.6"
+  spec.add_runtime_dependency "google-api-client", ">= 0.53.0"
+
+  spec.add_development_dependency "rake", ">= 13.1.0"
+  spec.add_development_dependency "rspec", ">= 3.13.0"
+  spec.add_development_dependency "pry", ">= 0.14.2"
+  spec.add_development_dependency "webmock", ">= 3.23.0"
+  spec.add_development_dependency "pry-byebug", "3.10.1"
 end

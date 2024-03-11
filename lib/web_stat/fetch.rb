@@ -40,7 +40,7 @@ module WebStat
         Sanitize.clean(Readability::Document.new(@nokogiri.at('body').to_s).content)
       end
     end
-    
+
     # Get describe of youtube movie.
     def youtube_decscription
       regex_string = WebStat::Configure.get["id_extraction_regexs"]["youtube"]
@@ -133,7 +133,7 @@ module WebStat
       end
       body
     end
-    
+
     # Return Date or last modified header.
     # @param [String] url
     # @return DataTime
@@ -157,9 +157,9 @@ module WebStat
     def stat(userdics: nil)
       clean_content = content.scrub('').gsub(/[\n\t\r　]/, "").gsub(/\s{2,}/, "\s").gsub(URI.regexp, "")
       language_code = CLD.detect_language(clean_content)[:code]
-      if userdics && userdics.has_key?(language_code) && File.exists?(userdics[language_code])
+      if userdics && userdics.has_key?(language_code) && File.exist?(userdics[language_code])
         tag = WebStat::Tag.new("#{title} #{content}", userdic: userdics[language_code])
-      elsif userdics && userdics.has_key?("other") && File.exists?(userdics["other"])
+      elsif userdics && userdics.has_key?("other") && File.exist?(userdics["other"])
         tag = WebStat::Tag.new("#{title} #{content}", userdic: userdics["other"])
       else
         tag = WebStat::Tag.new("#{title} #{content}", userdic: WebStat::Configure.get["userdic"])

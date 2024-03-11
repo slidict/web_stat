@@ -1,7 +1,5 @@
 require 'rspec/expectations'
 require "bundler/setup"
-require 'pry'
-require 'pry-byebug'
 require "web_stat"
 
 require 'webmock'
@@ -44,12 +42,12 @@ module WebStatTestHelper
         File.open(file).read
       end
     end
-    
+
     # Get html of fixture by name
     def html(name)
       File.open(File.join(File.dirname(__FILE__), "fixtures", "htmls", "#{name}")).read
     end
-    
+
     # Get htmls of fixture
     def scheme_and_files
       Dir.glob(File.join(File.dirname(__FILE__), "fixtures", "htmls", "*.html")).map do |file|
@@ -103,7 +101,7 @@ WebMock.stub_request(:get, "https://cdn.newsdict.jp/assets/newsdict-5d8601394c3f
         status: 200,
         body: File.new(File.join(File.dirname(__FILE__), "fixtures", "images", "newsdict-5d8601394c3f4eea2d7161ab92ab327ac7099e22214c853327011b3a71859b8e.png")),
         headers: {content_type: 'application/html; charset=utf-8'})
-        
+
 WebMock.stub_request(:get, "https://newsdict.blog/last_modified_at")
   .to_return(
     status: 200,
