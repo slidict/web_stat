@@ -1,6 +1,4 @@
-# Define base image, you can use --build-arg
-ARG base_image="newsdict/rails:ubuntu20.10_nvmv0.37.0_nodev15.2.1_rubyv3.0.0_sasscv2.4.0_ffiv1.13.1_chromedriver"
-FROM $base_image
+FROM slidict/docker-rails:bullseye-node20.11.1-npm10.5.0-ruby3.3.0-bundler-2.5.6_upgraded
 
 # Set locale
 ENV LANG "C.UTF-8"
@@ -15,9 +13,7 @@ COPY . .
 
 # Init gems
 RUN echo "gem: --no-rdoc --no-ri" > ~/.gemrc
-RUN . /etc/profile.d/rvm.sh && \
-  bundle config --global with 'development test' && \
-  bundle config --global system true && \
+RUN bundle config --global system true && \
   bundle config --global jobs 10 && \
   bundle config --global build.nokogiri --use-system-libraries && \
   bundle install

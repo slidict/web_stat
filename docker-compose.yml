@@ -3,10 +3,9 @@ networks:
   app-tier:
     driver: bridge
 services:
-  web_stat:
+  app:
     tty: true
     stdin_open: true
-    container_name: web_stat
     build:
       context: .
       dockerfile: Dockerfile
